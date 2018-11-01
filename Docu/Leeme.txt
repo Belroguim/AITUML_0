@@ -1,0 +1,21 @@
+
+etup Github:
+http://www.soronlin.org.uk/github-setup
+
+sudo apt install git
+git clone https://github.com/Belroguim/AITUML_0.git
+git checkout -b cds
+git checkout -b master
+git checkout -b cds
+﻿git config --global user.name "Belroguim"
+git config --global user.email "miguel.vilarinho@gmail.com"
+
+https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/
+
+git add .
+git commit -m "Ejemplos y estructura inicial"
+online creo la brunch cds.
+git push --set-upstream origin cds
+git config --global push.default matching
+git branch --set-upstream-to=origin/cds cds
+
