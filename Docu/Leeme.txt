@@ -1,5 +1,4 @@
-
-etup Github:
+Setup Github:
 http://www.soronlin.org.uk/github-setup
 
 sudo apt install git
