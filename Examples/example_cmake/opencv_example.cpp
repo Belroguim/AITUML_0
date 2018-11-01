@@ -1,3 +1,7 @@
+// sudo modprobe bcm2835-v4l2
+// https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
+// raspistill -vf -o image.jpg
+
 #include "opencv2/core.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
@@ -37,17 +41,17 @@ int main()
     int Height = capture.get(CV_CAP_PROP_FRAME_HEIGHT);
     std::cout <<"FRAME_HEIGHT (px): "<< Height << endl;
     capture.set(CV_CAP_PROP_FPS,50);
-    int fps = capture.get(CV_CAP_PROP_FPS);
+    float fps = capture.get(CV_CAP_PROP_FPS);
     std::cout <<"FRAME_RATE (fps) : "<< fps << endl; 
-    capture.set(CV_CAP_PROP_BRIGHTNESS,0); 
-    int Brightness = capture.get(CV_CAP_PROP_BRIGHTNESS);
-    std::cout <<"BRIGHTNESS       : "<< Brightness << endl;
-/*    capture.set(CV_CAP_PROP_AUTO_EXPOSURE,0); 
+    capture.set(CV_CAP_PROP_BRIGHTNESS,0.5); 
+    float Brightness = capture.get(CV_CAP_PROP_BRIGHTNESS);
+    std::cout <<"BRIGHTNESS (%)   : "<< Brightness*100 << endl;
+    capture.set(CV_CAP_PROP_AUTO_EXPOSURE,0); 
     int Auto_Exposure = capture.get(CV_CAP_PROP_AUTO_EXPOSURE);
     std::cout <<"AUTO_EXPOSURE    : "<< Auto_Exposure << endl;
-    capture.set(CV_CAP_PROP_EXPOSURE,10000); 
-    int Exposure = capture.get(CV_CAP_PROP_EXPOSURE);
-    std::cout <<"EXPOSURE         : "<< Exposure << endl;*/
+    capture.set(CV_CAP_PROP_EXPOSURE,0); 
+    float Exposure = capture.get(CV_CAP_PROP_EXPOSURE);
+    std::cout <<"EXPOSURE (us)    : "<< Exposure << endl;
 
     if(capture.isOpened())
     {
